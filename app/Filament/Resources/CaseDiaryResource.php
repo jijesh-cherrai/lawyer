@@ -74,8 +74,8 @@ class CaseDiaryResource extends Resource
                                     'closed' => 'Closed',
                                 ])
                                 ->colors([
-                                    'open'=>'success',
-                                    'closed'=>'danger',
+                                    'open' => 'success',
+                                    'closed' => 'danger',
                                 ])
                                 ->visibleOn('edit')
                                 ->grouped()
@@ -151,9 +151,7 @@ class CaseDiaryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort("upcoming_case_date", "asc")
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 ActionGroup::make([
                     Action::make('Follow up')

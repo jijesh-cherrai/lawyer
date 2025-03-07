@@ -42,11 +42,14 @@ class AdminPanelProvider extends PanelProvider
             ->assets([
                 Css::make('custom-tailwind', Vite::asset('resources/css/app.css')),
             ])
+            // ->font('Roboto')
+            ->favicon(asset('images/advocate.png'))
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 // Widgets\AccountWidget::class,
                 // Widgets\FilamentInfoWidget::class,
             ])
+            ->databaseTransactions()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
