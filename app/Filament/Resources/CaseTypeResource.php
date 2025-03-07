@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CourtResource\Pages;
-use App\Filament\Resources\CourtResource\RelationManagers;
-use App\Models\Court;
+use App\Filament\Resources\CaseTypeResource\Pages;
+use App\Filament\Resources\CaseTypeResource\RelationManagers;
+use App\Models\CaseType;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,19 +13,20 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CourtResource extends Resource
+class CaseTypeResource extends Resource
 {
-    protected static ?string $model = Court::class;
+    protected static ?string $model = CaseType::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+    protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
     
     protected static ?string $navigationGroup = 'Data Center';
+    
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('type')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -35,7 +36,7 @@ class CourtResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('type')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -70,10 +71,10 @@ class CourtResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCourts::route('/'),
-            // 'create' => Pages\CreateCourt::route('/create'),
-            // 'view' => Pages\ViewCourt::route('/{record}'),
-            // 'edit' => Pages\EditCourt::route('/{record}/edit'),
+            'index' => Pages\ListCaseTypes::route('/'),
+            // 'create' => Pages\CreateCaseType::route('/create'),
+            // 'view' => Pages\ViewCaseType::route('/{record}'),
+            // 'edit' => Pages\EditCaseType::route('/{record}/edit'),
         ];
     }
 }
