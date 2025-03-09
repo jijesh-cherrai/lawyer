@@ -10,6 +10,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -41,6 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->profile()
             ->assets([
                 Css::make('custom-tailwind', Vite::asset('resources/css/app.css')),
+                Js::make('custom-js', Vite::asset('resources/js/app.js'))
             ])
             // ->font('Roboto')
             ->favicon(asset('images/advocate.png'))
@@ -62,8 +64,7 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->sidebarCollapsibleOnDesktop()
-            // ->sidebarFullyCollapsibleOnDesktop()
-            ->sidebarWidth("18rem")
+            ->sidebarWidth("16rem")
             ->authMiddleware([
                 Authenticate::class,
             ]);

@@ -29,4 +29,8 @@ class CaseDiary extends Model
     {
         return $this->hasMany(CaseDetail::class, 'case_diary_id');
     }
+    public function caseFollowup()
+    {
+        return $this->hasMany(CaseFollowup::class, 'case_diary_id');
+    }
 }
